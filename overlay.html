@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Change on Key Press</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #text {
+            font-size: 24px;
+            font-weight: bold;
+            color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div id="text">Win 10/10</div>
+
+    <script>
+        let winCount = 10;
+
+        document.addEventListener("keydown", function(event) {
+            // Cambiar a "Win 10/10" al presionar W
+            if (event.key === "w" || event.key === "W") {
+                winCount = 10;
+                document.getElementById("text").textContent = `Win ${winCount}/10`;
+            }
+
+            // Bajar win con la tecla F (permitir negativos)
+            if (event.key === "f" || event.key === "F") {
+                winCount--;
+                document.getElementById("text").textContent = `Win ${winCount}/10`;
+            }
+
+            // Subir win con la tecla G
+            if (event.key === "g" || event.key === "G") {
+                if (winCount < 10) {
+                    winCount++;
+                }
+                document.getElementById("text").textContent = `Win ${winCount}/10`;
+            }
+        });
+    </script>
+</body>
+</html>
